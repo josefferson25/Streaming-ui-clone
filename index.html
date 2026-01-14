@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>StreamFlix - Assista a filmes e séries online</title>
+    <link rel="icon" type="image/x-icon" href="./img/cinema.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Ícones Font Awesome como SVG inline (alternativa sem CDN) */
+      .fas {
+        display: inline-block;
+        font-style: normal;
+        font-weight: 900;
+        font-size: inherit;
+        line-height: 1;
+      }
+
+      .fa-fire:before {
+        content: "🔥";
+      }
+      .fa-chevron-right:before {
+        content: "›";
+      }
+      .fa-chevron-left:before {
+        content: "‹";
+      }
+      .fa-search:before {
+        content: "🔍";
+      }
+      .fa-user:before {
+        content: "👤";
+      }
+      .fa-caret-down:before {
+        content: "⌄";
+      }
+      .fa-bars:before {
+        content: "☰";
+      }
+      .fa-times:before {
+        content: "✕";
+      }
+      .fa-tv:before {
+        content: "📺";
+      }
+      .fa-download:before {
+        content: "⬇";
+      }
+      .fa-laptop:before {
+        content: "💻";
+      }
+      .fa-child:before {
+        content: "👶";
+      }
+      .fa-play:before {
+        content: "▶";
+      }
+      .fa-info-circle:before {
+        content: "ⓘ";
+      }
+      .fa-star:before {
+        content: "★";
+      }
+      .fa-plus:before {
+        content: "+";
+      }
+      .fa-arrow-up:before {
+        content: "↑";
+      }
+
+      /* Para os ícones que não têm equivalente Unicode simples, usaremos SVG */
+      .fa-fire,
+      .fa-search,
+      .fa-user,
+      .fa-tv,
+      .fa-laptop,
+      .fa-child,
+      .fa-play,
+      .fa-star,
+      .fa-arrow-up {
+        font-family: "Segoe UI Symbol", "Apple Symbols", sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-container">
+        <a href="#" class="logo">
+          <img src="./img/cinema.png" alt="StreamFlix Logo" />
+          <span class="logo-text">STREAMFLIX</span>
+        </a>
+        <nav class="nav-menu">
+          <a href="#inicio" class="nav-link">Início</a>
+          <a href="#series" class="nav-link">Séries</a>
+          <a href="#filmes" class="nav-link">Filmes</a>
+          <a href="#novidades" class="nav-link">Novidades</a>
+          <a href="#minha-lista" class="nav-link">Minha Lista</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-search">
+            <i class="fas fa-search"></i>
+          </button>
+          <div class="user-dropdown">
+            <button class="btn-user">
+              <i class="fas fa-user"></i>
+              <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+          <button class="btn-entrar">Entrar</button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Menu Mobile Dropdown -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#inicio" class="mobile-nav-link">Início</a>
+        <a href="#series" class="mobile-nav-link">Séries</a>
+        <a href="#filmes" class="mobile-nav-link">Filmes</a>
+        <a href="#novidades" class="mobile-nav-link">Novidades</a>
+        <a href="#minha-lista" class="mobile-nav-link">Minha Lista</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Filmes, séries e muito mais, sem limites</h1>
+        <p class="hero-subtitle">Assista onde quiser. Cancele quando quiser.</p>
+        <p class="hero-text">
+          Pronto para assistir? Informe seu email para criar ou reiniciar sua
+          assinatura.
+        </p>
+        <div class="hero-form">
+          <input
+            type="email"
+            class="email-input"
+            placeholder="Seu melhor email"
+            required
+          />
+          <button class="btn-cta">
+            Vamos lá <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="carousel-section" id="series">
+      <div class="container">
+        <h2 class="section-title">
+          <i class="fas fa-fire"></i> Em alta esta semana
+        </h2>
+        <div class="carousel-container">
+          <button class="carousel-btn carousel-btn-left" id="carouselBtnLeft">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-card">
+                <div class="card-image">
+                  <img src="./img/m1.jpg" alt="Wandinha" />
+                  <div class="card-overlay">
+                    <button class="btn-play">
+                      <i class="fas fa-play"></i> Assistir
+                    </button>
+                    <button class="btn-info">
+                      <i class="fas fa-info-circle"></i> Detalhes
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Wandinha</h3>
+                  <div class="card-rating"><i class="fas fa-star"></i> 4.8</div>
+                  <div class="card-tags">
+                    <span class="tag">Suspense</span>
+                    <span class="tag">Sobrenatural</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <div class="card-image">
+                  <img src="./img/m2.jpg" alt="Casa da Noite" />
+                  <div class="card-overlay">
+                    <button class="btn-play">
+                      <i class="fas fa-play"></i> Assistir
+                    </button>
+                    <button class="btn-info">
+                      <i class="fas fa-info-circle"></i> Detalhes
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Casa da Noite</h3>
+                  <div class="card-rating"><i class="fas fa-star"></i> 4.5</div>
+                  <div class="card-tags">
+                    <span class="tag">Terror</span>
+                    <span class="tag">Mistério</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <div class="card-image">
+                  <img src="./img/m3.jpg" alt="O Elixir" />
+                  <div class="card-overlay">
+                    <button class="btn-play">
+                      <i class="fas fa-play"></i> Assistir
+                    </button>
+                    <button class="btn-info">
+                      <i class="fas fa-info-circle"></i> Detalhes
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">O Elixir</h3>
+                  <div class="card-rating"><i class="fas fa-star"></i> 4.7</div>
+                  <div class="card-tags">
+                    <span class="tag">Fantasia</span>
+                    <span class="tag">Aventura</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <div class="card-image">
+                  <img src="./img/m4.jpg" alt="KPOP" />
+                  <div class="card-overlay">
+                    <button class="btn-play">
+                      <i class="fas fa-play"></i> Assistir
+                    </button>
+                    <button class="btn-info">
+                      <i class="fas fa-info-circle"></i> Detalhes
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">KPOP: A Ascensão</h3>
+                  <div class="card-rating"><i class="fas fa-star"></i> 4.6</div>
+                  <div class="card-tags">
+                    <span class="tag">Música</span>
+                    <span class="tag">Drama</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <div class="card-image">
+                  <img src="./img/m5.jpg" alt="Alice" />
+                  <div class="card-overlay">
+                    <button class="btn-play">
+                      <i class="fas fa-play"></i> Assistir
+                    </button>
+                    <button class="btn-info">
+                      <i class="fas fa-info-circle"></i> Detalhes
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Alice no País Digital</h3>
+                  <div class="card-rating"><i class="fas fa-star"></i> 4.9</div>
+                  <div class="card-tags">
+                    <span class="tag">Ficção Científica</span>
+                    <span class="tag">Aventura</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <div class="card-image">
+                  <img src="./img/m6.jpg" alt="Filme 10" />
+                  <div class="card-overlay">
+                    <button class="btn-play">
+                      <i class="fas fa-play"></i> Assistir
+                    </button>
+                    <button class="btn-info">
+                      <i class="fas fa-info-circle"></i> Detalhes
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Código Secreto</h3>
+                  <div class="card-rating"><i class="fas fa-star"></i> 4.4</div>
+                  <div class="card-tags">
+                    <span class="tag">Ação</span>
+                    <span class="tag">Thriller</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Adicionando mais filmes para testar rolagem -->
+              <div class="carousel-card">
+                <div class="card-image">
+                  <img src="./img/m1.jpg" alt="Wandinha 2" />
+                  <div class="card-overlay">
+                    <button class="btn-play">
+                      <i class="fas fa-play"></i> Assistir
+                    </button>
+                    <button class="btn-info">
+                      <i class="fas fa-info-circle"></i> Detalhes
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Wandinha 2</h3>
+                  <div class="card-rating"><i class="fas fa-star"></i> 4.8</div>
+                  <div class="card-tags">
+                    <span class="tag">Suspense</span>
+                    <span class="tag">Sobrenatural</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <div class="card-image">
+                  <img src="./img/m2.jpg" alt="Casa da Noite 2" />
+                  <div class="card-overlay">
+                    <button class="btn-play">
+                      <i class="fas fa-play"></i> Assistir
+                    </button>
+                    <button class="btn-info">
+                      <i class="fas fa-info-circle"></i> Detalhes
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Casa da Noite 2</h3>
+                  <div class="card-rating"><i class="fas fa-star"></i> 4.5</div>
+                  <div class="card-tags">
+                    <span class="tag">Terror</span>
+                    <span class="tag">Mistério</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-btn carousel-btn-right" id="carouselBtnRight">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Indicadores de slide para mobile -->
+        <div class="carousel-indicators" id="carouselIndicators">
+          <div class="indicator active"></div>
+          <div class="indicator"></div>
+          <div class="indicator"></div>
+          <div class="indicator"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="novidades">
+      <div class="container">
+        <h2 class="section-title">Mais motivos para assinar</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-tv"></i>
+            </div>
+            <h3 class="feature-title">Aproveite na TV</h3>
+            <p class="feature-description">
+              Assista em Smart TVs, PlayStation, Xbox, Chromecast, Apple TV,
+              aparelhos de Blu-ray e outros dispositivos.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-download"></i>
+            </div>
+            <h3 class="feature-title">Baixe para assistir offline</h3>
+            <p class="feature-description">
+              Disponível em planos selecionados. Baixe filmes e séries para
+              assistir quando e onde quiser.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <h3 class="feature-title">Assista onde quiser</h3>
+            <p class="feature-description">
+              Assista a quantos filmes e séries quiser no celular, tablet,
+              laptop ou TV.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-child"></i>
+            </div>
+            <h3 class="feature-title">Crie perfis para crianças</h3>
+            <p class="feature-description">
+              Deixe as crianças se aventurarem com seus personagens favoritos em
+              um espaço feito só para elas — sem pagar a mais por isso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Perguntas frequentes</h2>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>O que é a StreamFlix?</span>
+              <i class="fas fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                A StreamFlix é um serviço de streaming que oferece uma ampla
+                variedade de séries, filmes e documentários premiados em
+                milhares de aparelhos conectados à internet.
+              </p>
+              <p>
+                Você pode assistir a quantos filmes e séries quiser, quando e
+                onde quiser - tudo por um preço mensal acessível. Aqui você
+                sempre encontra novidades. A cada semana, adicionamos novas
+                séries e filmes.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Quanto custa a StreamFlix?</span>
+              <i class="fas fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Assista à StreamFlix no seu celular, tablet, Smart TV, notebook
+                ou aparelho de streaming por uma taxa mensal única. Os planos
+                variam de R$ 20,90 a R$ 59,90 por mês. Sem contrato nem taxas
+                extras.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Onde posso assistir?</span>
+              <i class="fas fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Assista onde quiser, quando quiser. Acesse sua conta StreamFlix
+                para assistir no computador ou em qualquer aparelho conectado à
+                internet compatível com o aplicativo StreamFlix, como Smart TVs,
+                smartphones, tablets, aparelhos de streaming e videogames.
+              </p>
+              <p>
+                Você também pode baixar suas séries favoritas com o aplicativo
+                StreamFlix para iOS ou Android. Use os downloads para levar a
+                StreamFlix para onde quiser sem precisar de conexão com a
+                internet.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Como faço para cancelar?</span>
+              <i class="fas fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                A StreamFlix é flexível. Não há contratos nem compromissos. Você
+                pode cancelar a sua conta na internet com apenas dois cliques.
+                Não há taxa de cancelamento – você pode começar ou encerrar a
+                sua assinatura a qualquer momento.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>O que eu posso assistir na StreamFlix?</span>
+              <i class="fas fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                A StreamFlix tem um grande catálogo de filmes, documentários,
+                séries, originais StreamFlix premiados e muito mais. Assista o
+                quanto quiser, quando quiser.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>A StreamFlix é adequada para crianças?</span>
+              <i class="fas fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                A experiência infantil da StreamFlix faz parte da sua assinatura
+                para que as crianças se divirtam em seu próprio espaço com
+                séries e filmes familiares sob a supervisão dos responsáveis.
+              </p>
+              <p>
+                O recurso de controle parental, incluso nos perfis para crianças
+                e protegido por PIN, permite restringir a classificação etária
+                do conteúdo que as crianças podem ver e bloquear títulos
+                específicos que você não quer que elas assistam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <p class="cta-text">
+          Quer assistir? Informe seu email para criar ou reiniciar sua
+          assinatura.
+        </p>
+        <div class="cta-form">
+          <input
+            type="email"
+            class="email-input"
+            placeholder="Seu melhor email"
+            required
+          />
+          <button class="btn-cta">
+            Vamos lá <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-contact">
+          <p class="contact-info">
+            Dúvidas? Ligue para <a href="tel:08005912876">0800 591 2876</a>
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div class="links-column">
+            <a href="#">Perguntas frequentes</a>
+            <a href="#">Relações com investidores</a>
+            <a href="#">Formas de assistir</a>
+            <a href="#">Informações corporativas</a>
+            <a href="#">Só na StreamFlix</a>
+          </div>
+
+          <div class="links-column">
+            <a href="#">Centro de Ajuda</a>
+            <a href="#">Carreiras</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Entre em Contato</a>
+          </div>
+
+          <div class="links-column">
+            <a href="#">Conta</a>
+            <a href="#">Resgatar cartão pré-pago</a>
+            <a href="#">Privacidade</a>
+            <a href="#">Teste de velocidade</a>
+          </div>
+
+          <div class="links-column">
+            <a href="#">Media Center</a>
+            <a href="#">Comprar cartão pré-pago</a>
+            <a href="#">Preferências de cookies</a>
+            <a href="#">Avisos legais</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="language-selector">
+            <select class="language-select">
+              <option value="pt">Português</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+          <p class="copyright">StreamFlix Brasil &copy; 2026</p>
+          <p>Desenvolvido por josefferson</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão de rolar para o topo -->
+    <button class="scroll-to-top" id="scrollToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
